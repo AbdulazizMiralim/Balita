@@ -1,0 +1,66 @@
+{% load static %}
+<div class="col-md-12 col-lg-4 sidebar">
+
+
+                <div class="sidebar-box">
+                    <div class="bio text-center">
+
+                        <div class="bio-body">
+                            <h2>Abdulaziz Miralim</h2>
+                            <p>Hey, I'm Abdulaziz, currently a Computer Science (IT) student at Amity University. With a strong
+foundation in backend development, I've spent the past 2 years honing my skills . In addition to my
+academic pursuits, I've successfully completed three personal projects, showcasing my ability to bring
+ideas to life. I bring both academic knowledge and hands-on experience to the table. I'm eager to
+explore opportunities where I can apply my skills to contribute effectively to a dynamic team.</p>
+                            <p><a href="#" class="btn btn-primary btn-sm">Read my bio</a></p>
+                            <p class="social">
+                                <a href="#" class="p-2"><span class="fa fa-facebook"></span></a>
+                                <a href="#" class="p-2"><span class="fa fa-twitter"></span></a>
+                                <a href="#" class="p-2"><span class="fa fa-instagram"></span></a>
+                                <a href="#" class="p-2"><span class="fa fa-youtube-play"></span></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-box">
+                    <h3 class="heading">Popular Posts</h3>
+                    <div class="post-entry-sidebar">
+                        <ul>
+                            {% for post in posts %}
+                            <li>
+                                <a href>
+                                    <img src="{{ post.image.url }}" alt="Image placeholder" class="mr-4">
+                                    <div class="text">
+                                        <h4>{{ post.title }}</h4>
+                                        <div class="post-meta">
+                                            <span class="mr-2">{{ post.created_at }}</span> &bullet;
+                                            <span class="ml-2"><span class="fa fa-comments"></span>{{ comments.count }}</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="sidebar-box">
+                    <h3 class="heading">Categories</h3>
+                    <ul class="categories">
+                        {% for category in categories %}
+                        <li><a href="#">{{ category.name }} <span>{{ category.post_set.count }}</span></a></li>
+                        {% endfor %}
+                    </ul>
+
+                </div>
+
+                <div class="sidebar-box">
+                    <h3 class="heading">Tags</h3>
+                    <ul class="tags">
+                        {% for tag in tags %}
+                        <li><a href="/tag/{{ tag.id }}">{{ tag.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
